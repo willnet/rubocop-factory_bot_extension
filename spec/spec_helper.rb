@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rubocop-factory_bot_extionsion'
+require 'rubocop-factory_bot_extension'
 require 'rubocop/rspec/support'
 
 RSpec.configure do |config|

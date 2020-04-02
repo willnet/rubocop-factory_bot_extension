@@ -1,14 +1,14 @@
 require_relative 'lib/rubocop/factory_bot_extionsion/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "rubocop-factory_bot_extionsion"
-  spec.version       = RuboCop::FactoryBotExtionsion::VERSION
+  spec.name          = "rubocop-factory_bot_extension"
+  spec.version       = RuboCop::FactoryBotExtension::VERSION
   spec.authors       = ["willnet"]
   spec.email         = ["netwillnet@gmail.com"]
 
   spec.summary       = %q{a custom cop for factory_bot}
   spec.description   = %q{a custom cop for factory_bot}
-  spec.homepage      = "https://github.com/willnet/rubocop-factory_bot_extionsion"
+  spec.homepage      = "https://github.com/willnet/rubocop-factory_bot_extension"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 

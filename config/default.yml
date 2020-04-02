@@ -1,6 +1,6 @@
 # Write it!
 
-FactoryBotExtionsion/CreateAssociationInHook:
+FactoryBotExtension/CreateAssociationInHook:
   Description: 'TODO: Write a description of the cop.'
   Enabled: pending
   VersionAdded: '0.82'

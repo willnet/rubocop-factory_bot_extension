@@ -1,7 +1,7 @@
 require "rubocop/factory_bot_extionsion/version"
 
 module RuboCop
-  module FactoryBotExtionsion
+  module FactoryBotExtension
     class Error < StandardError; end
     # Your code goes here...
     PROJECT_ROOT   = Pathname.new(__dir__).parent.parent.expand_path.freeze

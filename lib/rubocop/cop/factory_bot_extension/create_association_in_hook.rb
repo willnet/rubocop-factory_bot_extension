@@ -3,7 +3,7 @@
 # TODO: when finished, run `rake generate_cops_documentation` to update the docs
 module RuboCop
   module Cop
-    module FactoryBotExtionsion
+    module FactoryBotExtension
       # TODO: Write cop description and example of bad / good code. For every
       # `SupportedStyle` and unique configuration, there needs to be examples.
       # Examples must have valid Ruby syntax. Do not use upticks.

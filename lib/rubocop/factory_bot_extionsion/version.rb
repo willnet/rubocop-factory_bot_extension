@@ -1,5 +1,5 @@
 module RuboCop
-  module FactoryBotExtionsion
+  module FactoryBotExtension
     VERSION = "0.1.0"
   end
 end
