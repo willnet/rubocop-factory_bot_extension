@@ -45,7 +45,7 @@ module RuboCop
         # See https://github.com/rubocop-hq/rubocop/blob/master/lib/rubocop/node_pattern.rb
         #
         # For example
-        MSG = 'Use `#good_method` instead of `#bad_method`.'
+        MSG = '^^^^^^^^^^ Create association records in hooks inside `trait { ... }`'
 
         def_node_matcher :bad_method?, <<~PATTERN
           (send nil? :bad_method ...)

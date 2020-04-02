@@ -5,19 +5,49 @@ RSpec.describe RuboCop::Cop::FactoryBotExtionsion::CreateAssociationInHook do
 
   let(:config) { RuboCop::Config.new }
 
-  # TODO: Write test code
-  #
-  # For example
-  it 'registers an offense when using `#bad_method`' do
+  it 'registers an offense when using `#create` in hooks outside trait' do
     expect_offense(<<~RUBY)
-      bad_method
-      ^^^^^^^^^^ Use `#good_method` instead of `#bad_method`.
+      FactoryBot.define do
+        factory :user do
+          name { 'willnet' }
+
+          after(:build) do |user|
+            create(:post, user: user)
+            ^^^^^^^^^^ Create association records in hooks inside `trait { ... }`
+          end
+        end        
+      end
     RUBY
   end
 
-  it 'does not register an offense when using `#good_method`' do
+  it 'registers an offense when using `FactoryBot.create` in hooks outside trait' do
+    expect_offense(<<~RUBY)
+      FactoryBot.define do
+        factory :user do
+          name { 'willnet' }
+
+          after(:build) do |user|
+            FactoryBot.create(:post, user: user)
+            ^^^^^^^^^^ Create association records in hooks inside `trait { ... }`
+          end
+        end        
+      end
+    RUBY
+  end
+
+  it 'registers an offense when using `#create` in hooks inside trait' do
     expect_no_offenses(<<~RUBY)
-      good_method
+      FactoryBot.define do
+        factory :user do
+          name { 'willnet' }
+
+          trait(:with_posts) do
+            after(:build) do |user|
+              create(:post, user: user)
+            end
+          end
+        end        
+      end
     RUBY
   end
 end
