@@ -13,7 +13,7 @@ RSpec.describe RuboCop::Cop::FactoryBotExtension::CreateAssociationInHook do
 
           after(:build) do |user|
             create(:post, user: user)
-            ^^^^^^^^^^ Create association records in hooks inside `trait { ... }`
+            ^^^^^^^^^^^^^^^^^^^^^^^^^ Create association records in hooks inside `trait { ... }`
           end
         end        
       end
@@ -28,7 +28,7 @@ RSpec.describe RuboCop::Cop::FactoryBotExtension::CreateAssociationInHook do
 
           after(:build) do |user|
             FactoryBot.create(:post, user: user)
-            ^^^^^^^^^^ Create association records in hooks inside `trait { ... }`
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Create association records in hooks inside `trait { ... }`
           end
         end        
       end

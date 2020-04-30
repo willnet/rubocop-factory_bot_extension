@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require 'pry'
 # TODO: when finished, run `rake generate_cops_documentation` to update the docs
 module RuboCop
   module Cop
@@ -45,16 +45,18 @@ module RuboCop
         # See https://github.com/rubocop-hq/rubocop/blob/master/lib/rubocop/node_pattern.rb
         #
         # For example
-        MSG = '^^^^^^^^^^ Create association records in hooks inside `trait { ... }`'
+        MSG = 'Create association records in hooks inside `trait { ... }`'
 
         def_node_matcher :bad_method?, <<~PATTERN
           (send nil? :bad_method ...)
         PATTERN
 
         def on_send(node)
-          return unless bad_method?(node)
-
-          add_offense(node)
+          return if node.method_name != :create && node.method_name != :build
+          binding.pry
+          if (node.parent.method_name == :after || node.parent.method_name == :before) && node.parent.parent.method_name != :trait
+            add_offense(node)
+          end
         end
       end
     end
